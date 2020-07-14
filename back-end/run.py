@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import json
 import SqliteUtil as DBUtil
 app = Flask(__name__)
@@ -15,9 +15,6 @@ def cors(environ):
 def hello_world():
     return 'Hello World!'
 
-# apiPrefix = '/api'
-
-
 @app.route('/AddPrize/<int:isUpdate>',  methods=['GET', 'POST'])
 def updateStaff(isUpdate):
     if request.method == 'POST':
@@ -28,12 +25,9 @@ def updateStaff(isUpdate):
     # return 'Hello World!'
     
 @app.route('/getData/<int:job>')
-def getStaffList(job):
-    print("---------------------job", job)
+def getStaffList(job): 
     array = DBUtil.getStaffList(job)  # [('1', '1', '1', '1', '1'), ('1', '1', '2', '3', '4'), ...] 二维数组
-    print("---------------------array", array)
     jsonStaffs = DBUtil.getStaffsFromData(array)
-    print("jsonStaffs:", jsonStaffs)
     # 变成字符串形式
     return json.dumps(jsonStaffs)
     # return 'Hello World!'
@@ -56,7 +50,7 @@ def searchStaff_2(idSearch,typeSearch):
     print('jsonStaffs:', jsonStaffs)
     re = json.dumps(jsonStaffs)
     print('re:', re)
-    return re
+    return jsonify(jsonStaffs)
 
 
 if __name__ == '__main__':

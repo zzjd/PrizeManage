@@ -1,0 +1,28 @@
+.main {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.form-item label {
+  margin-right: 20px;
+  width: 80px;
+}
+.return-style{
+  display: flex;
+
+}
+.return-style Button{
+  margin-left: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.input-style{
+  display: flex;
+  justify-content: center; /* 水平居中 */
+}

@@ -1,7 +1,6 @@
 import pymysql
 import json
 
-
 db_name = 'test1'
 
 conn = pymysql.connect("localhost", "root", "", "test1")
@@ -26,12 +25,9 @@ staffColumns = ("id", "name", "type", "total", "stock", "operator", "time")
 
 def addOrUpdateStaff(json_str, isUpdate):
     print("isUpdate", isUpdate)
-    # print(json_str)
     staff = json.loads(json_str)
     id = staff.get('id', 0)
     name = staff.get('name', 0)
-    # print(id)
-    # print(name)
     result = ''
     newId = id
     keys = ''
