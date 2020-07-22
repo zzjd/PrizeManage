@@ -3,7 +3,7 @@ import json
 import SqliteUtil as DBUtil
 app = Flask(__name__)
 
-
+# 解决跨域的问题
 @app.after_request
 def cors(environ):
     environ.headers['Access-Control-Allow-Origin']='*'
