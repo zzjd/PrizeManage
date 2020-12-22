@@ -1,0 +1,6 @@
+{
+"editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "eslint.autoFixOnSave": true,  //  启用保存时自动修复,默认只支持.js文件
+},
+}
